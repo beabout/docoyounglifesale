@@ -1,0 +1,74 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import url("https://fonts.googleapis.com/css2?family=Marvel:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+$font-family: 'Marvel', sans-serif;
+// $font-family-sans-serif: Montserrat, Helvetica, Arial, sans-serif;
+$font-family-sans-serif: $font-family;
+// $font-family-serif: Arvo, Georgia, "Times New Roman", Times, serif;
+$font-family-serif: $font-family;
+
+$font-family-base: $font-family-serif;
+$headings-font-family: $font-family-sans-serif;
+
+
+$primary-theme: #af4225;
+$secondary-theme: #cee6f2;
+$logo-alternative-theme: #6f7b71;
+
+$alternative-theme: #809e7a;
+
+
+$body-color: rgba(28, 13, 10, 0.7);
+$headings-color: $alternative-theme;
+
+$theme-colors: (
+  "primary": $alternative-theme
+);
+
+$enable-rounded: false;
+
+@import "bootstrap";
+@import "guests";
+@import "welcome";
+
+.wedding-cta-btn {
+  letter-spacing: 2px;
+  padding: 0.75rem 1.5rem;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.navbar {
+  background-color: $alternative-theme !important;
+}
+
+.navbar .navbar-brand {
+  color: #fff;
+}
+
+.navbar-nav.navbar-center { 
+  position: absolute; 
+  left: 50%; 
+  transform: translatex(-50%); 
+} 
