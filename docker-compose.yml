@@ -1,17 +1,29 @@
 version: '3'
 services:
+  maildev:
+    image: djfarrelly/maildev
+    ports:
+      - 3001:80
+      - '25:25'
   db:
     image: postgres
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
-  web:
-    build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+  app:
+    image: brandnewbox/bnb-ruby:2.5-postgresql
+    # command: bundle exec rails s -b 0.0.0.0
+    command: bundle exec puma -C config/puma.rb
+    env_file: .docker-development-vars
+    # build: .
     volumes:
-      - .:/myapp
+      - .:/app:cached
+      - bundle:/usr/local/bundle
     ports:
-      - "3000:3000"
+      - 3000:3000
     depends_on:
       - db
+volumes: 
+  bundle:
+  pgdata: 

@@ -9,23 +9,28 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
   %body
-    %nav.navbar.navbar-expand-lg.navbar-light.bg-dark
-        %a.navbar-brand{:href => root_path} Sidewalk Sale
-        %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
-          %span.navbar-toggler-icon
-        #navbarSupportedContent.collapse.navbar-collapse
-          %ul.navbar-nav.mr-auto
+    %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      %a.navbar-brand{:href => root_path} Sidewalk Sale
+      %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
+        %span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        %ul.navbar-nav.mr-auto
+          %li.nav-item
+            %a.nav-link{href: about_us_welcome_index_path} About
+          %li.nav-item
+            %a.nav-link{href: vendors_path} Vendors
+          %li.nav-item
+            %a.nav-link{href: donate_welcome_index_path} Donate
+          - if user_signed_in? 
             %li.nav-item
-              %a.nav-link{:href => "#"} About Us
-            %li.nav-item
-              %a.nav-link{href: vendors_path} Vendors
-            %li.nav-item
-              %a.nav-link{:href => "#"} Contact Us
-            %li.nav-item
-              %a.nav-link{:href => "#"} Donate
-        
-      - flash.each do |key, value|
-        = content_tag(:div, class: flash_class(key)) do
-          = value
-      .container 
-        = yield
+              = link_to "Logout", main_app.destroy_user_session_path, method: :delete, class: 'nav-link'
+      
+    -# - flash.each do |key, value|
+    -#   = content_tag(:div, class: flash_class(key)) do
+    -#     = value
+
+    .container.mb-4
+      - flash.each do |type, msg| 
+        = msg
+
+      = yield

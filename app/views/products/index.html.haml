@@ -1,28 +1,17 @@
 %h1= @vendor.display_name
 
-%p 
-  %strong Bio? 
-  (1732-99) was commander in chief of the Continental Army during the American Revolutionary War (1775-83) and served two terms as the first U.S. president, from 1789 to 1797. The son of a prosperous planter, Washington was raised in colonial Virginia.
-
+%p= @vendor&.bio
+- @vendor.links.each do |link|
+  = link_to link.site_name, link.site_url, class: 'badge badge-primary sale-bdg'
 
 %hr 
 
 %h2 Products 
-
 - if @products.empty? 
   %p Uh oh! This vendor doesn't have any products up yet! 
 - else 
   .row 
     - @products.each do |product|
-      .col-12.col-sm-6.col-md-4
-        .card.mb-4
-          %img.card-img-top{:alt => "Profile Image", src: "profile.jpg", style: "height: 300px; width: auto;"}
-          .card-body
-            %h5.card-title= product.name
-            %p.card-text 
-              - product.attributes_list.each do |attr|
-                %span.badge.badge-primary= attr
-            %hr
-            %a.btn.btn-primary{href: root_path} Email Vendor 
+      = render partial: 'product_card', locals: { product: product }
 .text-center
-  %a.btn.btn-primary{href: vendors_path} Back to Vendors 
+  = link_to 'Back to Vendors', vendors_path, class: 'btn btn-primary sale-btn'

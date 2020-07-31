@@ -1,0 +1,18 @@
+.container 
+  %h1 You have a customer waiting! 
+
+  %p= "Hey #{@vendor.full_name},"
+
+  %p You have a customer interested in one of your products: 
+  .card.mb-4
+    - if @product.image.attached?
+      = image_tag @product.image, style: 'width: 100%;'
+    .card-body
+      %h5.card-title
+        = @product.name
+        |
+        = @product.size
+      
+  %p 
+    feel free to reach out to them by
+    = @customer_email 

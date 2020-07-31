@@ -1,4 +1,4 @@
-%h1 Vendors
+%h1.bold Vendors
 - if @vendors.empty? 
   %p Sorry, no vendors yet! 
 - else 
@@ -7,20 +7,7 @@
 
 .row 
   - @vendors.each do |vendor|
-    .col-12.col-sm-6.col-md-4
-      .card.mb-4
-        - unless vendor.first_name.eql?('Lauren')
-          %img.card-img-top{:alt => "Profile Image", src: "profile.jpg", style: "height: 300px; width: auto;"}
-        - else
-          %img.card-img-top{:alt => "Profile Image", src: "mariposa.jpg", style: "height: 300px; width: auto;"}
-        .card-body
-          %h5.card-title= vendor.display_name
-          %p.card-text 
-            %span.badge.badge-primary Earrings 
-            %span.badge.badge-primary Clothing 
-            %span.badge.badge-primary House Items 
-          %hr
-          %a.btn.btn-primary{href: vendor_products_path(vendor)} Check out my stuff
+    = render partial: 'vendor_card', locals: { vendor: vendor }
 
 .text-center
-  %a.btn.btn-primary{href: root_path} Back to homepage 
+  %a.btn.btn-primary.sale-btn{href: root_path} Back to homepage 

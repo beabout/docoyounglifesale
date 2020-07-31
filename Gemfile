@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.8'
+ruby '2.5.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
@@ -30,9 +30,15 @@ gem 'jbuilder', '~> 2.5'
 # .erb -> .haml
 gem "haml-rails", "~> 2.0"
 # Bootstrap styling 
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.5'
 # Admin Interface 
-gem 'trestle'
+gem 'trestle', '~> 0.9.3'
+
+# Active Storage database access for Trestle
+gem 'trestle-active_storage'
+
+# For admin/user login security
+gem 'devise'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

@@ -1,0 +1,16 @@
+.col-12
+  .card.mb-4.card-bordering
+    .row 
+      .col-3
+        - if product.image.attached?
+          = image_tag product.image, style: 'width: 100%;'
+      .col-9
+        .card-body
+          %h5.card-title= product.name
+          %hr
+          %p.card-text= product&.description
+          - if product.size
+            %p.card-text Size: #{product.size}
+          - if product.cost 
+            %p.card-text Cost: #{product.cost}
+          %a.btn.btn-primary.sale-btn{href: root_path} Email Vendor 
