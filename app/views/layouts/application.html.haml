@@ -16,11 +16,11 @@
       #navbarSupportedContent.collapse.navbar-collapse
         %ul.navbar-nav.mr-auto
           %li.nav-item
-            %a.nav-link{href: about_us_welcome_index_path} About
+            %a.nav-link{href: about_us_path} About
           %li.nav-item
             %a.nav-link{href: vendors_path} Vendors
           %li.nav-item
-            %a.nav-link{href: donate_welcome_index_path} Donate
+            %a.nav-link{href: donate_path} Donate
           - if user_signed_in? 
             %li.nav-item
               = link_to "Logout", main_app.destroy_user_session_path, method: :delete, class: 'nav-link'

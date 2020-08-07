@@ -8,9 +8,11 @@ Rails.application.routes.draw do
 
   resources :welcome do 
     get :index, on: :collection
-    get :about_us, on: :collection
-    get :donate, on: :collection
+    # get :about_us, on: :collection
+    # get :donate, on: :collection
   end 
 
+  get "about_us" => "welcome#about_us", :as => :about_us
+  get "donate" => "welcome#donate", :as => :donate
   root 'welcome#index'
 end

@@ -14,3 +14,4 @@
           - if product.cost 
             %p.card-text Cost: #{product.cost}
           %a.btn.btn-primary.sale-btn{href: root_path} Email Vendor 
+          %p= mail_to product.vendor.email
