@@ -1,18 +1,17 @@
-.container 
-  %h1 You have a customer waiting! 
+%h1.display-4 You have a customer waiting! 
 
-  %p= "Hey #{@vendor.full_name},"
+%p.lead Hey #{@vendor.first_name},
 
-  %p You have a customer interested in one of your products: 
-  .card.mb-4
-    - if @product.image.attached?
-      = image_tag @product.image, style: 'width: 100%;'
-    .card-body
-      %h5.card-title
-        = @product.name
-        |
-        = @product.size
-      
-  %p 
-    feel free to reach out to them by
-    = @customer_email 
+%p.lead You have a customer interested in one of your products: 
+.card.mb-4.card-bordering{style: 'width: 30rem;'}
+  - if @product.image.attached?
+    = image_tag @product.image, style: 'width: 30rem;'
+  .card-body
+    %h5.card-title
+      = @product.name
+      |
+      = @product.size
+%br
+%p.lead 
+  feel free to reach out to them by
+  = mail_to @customer_email 

@@ -1,12 +1,6 @@
-.container 
-  %h1 Welcome to the Fall Sale! 
+%h1.display-4 Welcome to the Fall Sale! 
 
-  %p= "Hey #{@vendor.full_name},"
+%p Hey #{@vendor.first_name},
 
-  %p Thank you again for joining Douglas County Young Life's Fall Sale! 
-  
-  %p We are so excited to support your work by sharing it with the Douglas County community! 
-  
-  %p To check out your page, click the link below! 
-
-  = link_to "Fall Sale", root_url, class: "btn btn-primary sale-btn"
+%p.lead Thank you again for joining Douglas County Young Life's Fall Sale! We are so excited to support your work by sharing it with the Douglas County community! 
+%p.lead= link_to "Click Here to check out your page", vendor_url(@vendor), class: "btn btn-primary sale-btn"

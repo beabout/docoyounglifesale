@@ -4,11 +4,14 @@
     %meta{content: "width=device-width", name: "viewport"}/
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %link{:href=>"https://fonts.googleapis.com/css2?family=Marvel:ital,wght@0,400;0,700;1,400;1,700&display=swap", :rel=>"stylesheet", :type=>"text/css"}
+    = stylesheet_link_tag "application" 
 
     %title YL Fall Sale Email 
   %body
-    = yield
-
-    %p 
-      If you have any questions about your page, please reach out to 
-      = mail_to "laurenannbeabout@gmail.com"
+    .container
+      .jumbotron
+        = yield
+        %hr.my-4
+        %p 
+          If you have any questions about your page, please reach out to 
+          = mail_to "laurenannbeabout@gmail.com"
