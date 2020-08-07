@@ -40,6 +40,10 @@ gem 'trestle-active_storage'
 # For admin/user login security
 gem 'devise'
 
+gem 'premailer', '~> 1.8', '>= 1.8.7'
+gem 'premailer-rails', '~> 1.11', '>= 1.11.1'
+gem 'friendly_id', '~> 5.3'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
