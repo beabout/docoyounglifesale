@@ -5,7 +5,7 @@
     .card-body
       %h2.card-title= vendor.display_name
       %p.card-text 
-        - vendor.product_types_list.each do |ptype|
-          %span.badge.badge-primary.sale-bdg= ptype.name
+        - vendor.product_types_list.map(&:name).each do |name|
+          %span.badge.badge-primary.sale-bdg= name
       %hr
       = link_to 'Check out my stuff', vendor_products_path(vendor), class: 'btn btn-primary sale-btn'

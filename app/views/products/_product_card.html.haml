@@ -1,8 +1,8 @@
 .col-12
   .card.mb-4.card-bordering
     .row 
-      .col-3
-        - if product.image.attached?
+      - if product.image.attached?
+        .col-3
           = image_tag product.image, style: 'width: 100%;'
       .col-9
         .card-body
@@ -12,14 +12,18 @@
           - if product.size
             %p.card-text Size: #{product.size}
           - if product.cost 
-            %p.card-text Cost: #{product.cost}
-          %a.btn.btn-primary.sale-btn{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseExample", :role => "button"} Email Vendor 
-          #collapseExample.collapse
-            %hr
-            .card.card-body
-              = simple_form_for vendor_product_inquiry_path(product.vendor), method: :get do |f| 
-                = f.input :email
-                = f.input :message
-                = f.hidden_field :product_id, value: product.id 
-                = f.submit 'Send Email', class: 'btn btn-primary sale-btn'
+            %p.card-text Cost: #{number_to_currency(product.cost)}
+          -# %a.btn.btn-primary.sale-btn{"aria-controls" => "email-form", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#email-form", :role => "button"} Email Vendor 
+          -# #email-form.collapse
+            -# %hr
+            -# .card.card-body
+              -# = simple_form_for vendor_product_inquiry_path(product.vendor.id), method: :post do |f| 
+                -# .row 
+                -#   .col-6
+                -#     = f.input :email, placeholder: 'Your email...'
+                -#   .col-6
+                -#     = f.input :phone_number, placeholder: 'Your phone number...'
+                -# = f.input :message, as: :text, placeholder: 'Add a personal message with your email'
+                -# = f.hidden_field :product_id, value: product.id 
+                -# = f.submit 'Send Email', class: 'btn btn-primary sale-btn'
               

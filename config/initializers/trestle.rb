@@ -3,7 +3,7 @@ Trestle.configure do |config|
   #
   # Set the page title shown in the main header within the admin.
   #
-  config.site_title = "Fall Sale"
+  config.site_title = "Sidewalk Sale"
 
   # Specify a custom image to be used in place of the site title for mobile and
   # expanded/desktop navigation. These images should be placed within your
@@ -92,9 +92,9 @@ Trestle.configure do |config|
   # config.hook(:stylesheets) do
   #   stylesheet_link_tag "custom"
   # end
-   config.hook("view.header") do
-      render "admin/header"
-    end
+  config.hook("view.header") do
+    render "admin/header"
+  end
 
   # Toggle whether Turbolinks is enabled within the admin.
   # Defaults to true if Turbolinks is available.

@@ -26,6 +26,6 @@ products = [
 
 Vendor.all.each do |vendor|
   products.each do |product|
-    vendor.products.create(name: product[0], cost: product[1] , description: product[2], size: product[3])
+    vendor.products.create!(name: product[0], cost: product[1] , description: product[2], size: product[3], product_type_id: ProductType.first.id)
   end
 end

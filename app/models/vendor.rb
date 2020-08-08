@@ -19,7 +19,7 @@ class Vendor < ApplicationRecord
   end
 
   def product_types_list
-    products.map(&:product_type).compact
+    products.map(&:product_type).compact.uniq
   end
 
   private 

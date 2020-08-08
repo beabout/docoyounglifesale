@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :vendors do 
+  resources :vendors, only: [:index] do 
     post :product_inquiry
-    resources :products
+    resources :products, only: [:index] 
   end
+
+  resources :messages, only: [:create]
 
   resources :welcome do 
     get :index, on: :collection

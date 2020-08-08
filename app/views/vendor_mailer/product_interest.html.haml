@@ -13,5 +13,7 @@
       = @product.size
 %br
 %p.lead 
-  feel free to reach out to them by
+  feel free to reach out to them at
   = mail_to @customer_email 
+- if @phone 
+  %p Or via their phone: #{@phone}

@@ -1,13 +1,9 @@
 class ProductsController < ApplicationController
   before_action :load_vendor, only: [:index]
-  before_action :load_product, only: [:show]
 
   def index
     @products = @vendor.products
-  end
-  
-  def show
-    
+    @message = Message.new
   end
 
   private 
