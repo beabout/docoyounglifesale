@@ -13,5 +13,13 @@
             %p.card-text Size: #{product.size}
           - if product.cost 
             %p.card-text Cost: #{product.cost}
-          %a.btn.btn-primary.sale-btn{href: root_path} Email Vendor 
-          %p= mail_to product.vendor.email
+          %a.btn.btn-primary.sale-btn{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseExample", :role => "button"} Email Vendor 
+          #collapseExample.collapse
+            %hr
+            .card.card-body
+              = simple_form_for vendor_product_inquiry_path(product.vendor), method: :get do |f| 
+                = f.input :email
+                = f.input :message
+                = f.hidden_field :product_id, value: product.id 
+                = f.submit 'Send Email', class: 'btn btn-primary sale-btn'
+              

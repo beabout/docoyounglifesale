@@ -1,7 +1,7 @@
 class VendorMailer < ApplicationMailer
   include MailerConcerns 
 
-  def product_interest(customer_email:, product:)
+  def product_interest(customer_email:, product:, message:)
     @customer_email = customer_email 
     @product = product
     @vendor = @product.vendor

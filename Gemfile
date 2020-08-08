@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 # .erb -> .haml
 gem "haml-rails", "~> 2.0"
 # Bootstrap styling 
@@ -43,6 +44,7 @@ gem 'devise'
 gem 'premailer', '~> 1.8', '>= 1.8.7'
 gem 'premailer-rails', '~> 1.11', '>= 1.11.1'
 gem 'friendly_id', '~> 5.3'
+gem 'simple_form', '~> 5.0', '>= 5.0.2'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
