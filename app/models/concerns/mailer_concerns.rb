@@ -2,7 +2,7 @@ module MailerConcerns
   extend ActiveSupport::Concern
 
   included do 
-    default from: 'laurenannbeabout@gmail.com'
+    default from: "molly@douglascounty.younglife.org"
   end
   
   def generate_premailer(template)

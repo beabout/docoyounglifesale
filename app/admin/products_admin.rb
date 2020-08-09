@@ -21,8 +21,8 @@ Trestle.resource(:products) do
   # Customize the form fields shown on the new/edit views.
   #
   form do |product|
-    select :vendor_id, Vendor.all 
-    select :product_type_id, ProductType.all, label: "Product Type", default: "choose a product type" 
+    select :vendor_id, Vendor.all, default: "choose a product type", include_blank: true 
+    select :product_type_id, ProductType.all, label: "Product Type", include_blank: true
     row do
       col { text_field :name }
       col { text_field :size }

@@ -12,8 +12,13 @@
       |
       = @product.size
 %br
+- if @note 
+  %p Here's a note from them: 
+  %span.badge.sale-bdg #{@note}
+  %br
+  %br
 %p.lead 
   feel free to reach out to them at
   = mail_to @customer_email 
-- if @phone 
-  %p Or via their phone: #{@phone}
+  - if @phone 
+    Or via their phone: #{@phone}

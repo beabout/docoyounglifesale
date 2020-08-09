@@ -18,8 +18,8 @@
         %span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
         %ul.navbar-nav.mr-auto
-          %li.nav-item
-            %a.nav-link{href: about_us_path} About
+          -# %li.nav-item
+          -#   %a.nav-link{href: about_us_path} About
           %li.nav-item
             %a.nav-link{href: vendors_path} Vendors
           %li.nav-item
@@ -27,13 +27,13 @@
           - if user_signed_in? 
             %li.nav-item
               = link_to "Logout", main_app.destroy_user_session_path, method: :delete, class: 'nav-link'
-      
-    -# - flash.each do |key, value|
-    -#   = content_tag(:div, class: flash_class(key)) do
-    -#     = value
 
     .container.mb-4
       - flash.each do |type, msg| 
-        = msg
+        - if type == 'notice'
+          .alert.alert-primary.alert-dismissible.fade.show{:role => "alert"}
+            = msg
+            %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+              %span{"aria-hidden" => "true"} ×
 
       = yield

@@ -46,5 +46,12 @@ Trestle.resource(:vendors) do
       concat admin_link_to("New Product", admin: :products, action: :new, params: { vendor_id: vendor}, class: "btn btn-success")
     end
 
+    tab :links do 
+      table vendor.links, admin: :links do
+        column :site_name
+        column :site_url
+      end
+      concat admin_link_to("New Link", admin: :links, action: :new, params: { vendor_id: vendor}, class: "btn btn-success")
+    end
   end
 end

@@ -44,6 +44,10 @@ $enable-rounded: false;
 
 @import "bootstrap";
 
+body {
+  font-size: 1.25rem;
+}
+
 .sale-btn {
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
@@ -96,4 +100,8 @@ $enable-rounded: false;
 
 .bold {
   font-weight: bold;
+}
+
+.badge {
+  font-size: 100%;
 }

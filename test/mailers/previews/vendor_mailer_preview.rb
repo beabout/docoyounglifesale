@@ -6,7 +6,6 @@ class VendorMailerPreview < ActionMailer::Preview
   end
 
   def product_interest
-    vendor = Vendor.first
-    VendorMailer.product_interest(customer_email: 'default@gmail.com', product: Product.first)
+    VendorMailer.product_interest(Product.first, 'default@gmail.com', 'this is so cool')
   end
 end

@@ -1,4 +1,5 @@
-%h1= @vendor.display_name
+%h1
+  %strong= @vendor.display_name
 
 %p= @vendor&.bio
 - @vendor.links.each do |link|
@@ -10,26 +11,13 @@
 - if @products.empty? 
   %p Uh oh! This vendor doesn't have any products up yet! 
 - else 
-  %p If you are interested in a product, email the vendor to get in touch!
+  %p If you are interested in a product, send the vendor a message below
   .row 
     - @products.each do |product|
       = render partial: 'product_card', locals: { product: product }
       
-%hr
-%h2 Send #{@vendor.display_name} a message.
-%p Fill in the fields below and select a product your interested in and we'll let the vendor know you're interested!
-= simple_form_for @message, method: :post do |f| 
-  .row 
-    .col-6
-      = f.input :email, placeholder: 'Your email...'
-    .col-6
-      = f.input :phone_number, placeholder: 'Your phone number...'
-    .col-12 
-      = f.input :product_id, as: :select, collection: @vendor.products, include_blank: 'Choose a Product'
-    .col-12
-      = f.input :note, as: :text, placeholder: 'Add a personal message with your email'
-    .col-12
-      = f.submit 'Send Message', class: 'btn btn-primary sale-btn'
-
-.text-center
-  = link_to 'Back to Vendors', vendors_path, class: 'btn btn-primary sale-btn'
+  %hr
+  %h2 Send #{@vendor.display_name} a message.
+  = render partial: 'send_message_form'
+  .text-center
+    = link_to 'Back to Vendors', vendors_path, class: 'btn btn-primary sale-btn'
