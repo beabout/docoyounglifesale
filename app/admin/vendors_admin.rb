@@ -26,7 +26,7 @@ Trestle.resource(:vendors) do
       end
       row do 
         col { text_field :company_name }
-        col { text_field :website_url }
+        col { text_field :website_url, label: "Personal Site URL", placeholder: 'http://somesiteurl.com'}
       end
       row do 
         col { text_field :email }

@@ -46,6 +46,8 @@ $enable-rounded: false;
 
 body {
   font-size: 1.25rem;
+  background-image: url("sidewalk-opaque.jpg");
+  background-position: center; 
 }
 
 .sale-btn {
@@ -55,6 +57,7 @@ body {
 
 .sale-bdg {
   border-radius: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 .container {
@@ -94,6 +97,12 @@ body {
   border-top-right-radius: 0.5rem;
 }
 
+.product-image {
+  width: 100%;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
 .card-bordering {
   border-radius: 0.5rem;
 }
@@ -104,4 +113,11 @@ body {
 
 .badge {
   font-size: 100%;
+}
+
+.jumbotron {
+  border-radius: 0.5rem;
+  @media (min-width: 576px){
+    padding: 2rem 2rem;
+  }
 }

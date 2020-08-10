@@ -2,6 +2,8 @@
   %strong= @vendor.display_name
 
 %p= @vendor&.bio
+- if @vendor.website_url.present?
+  = link_to "#{@vendor.display_name}'s Site", @vendor.website_url, class: 'badge badge-primary sale-bdg'
 - @vendor.links.each do |link|
   = link_to link.site_name, link.site_url, class: 'badge badge-primary sale-bdg'
 
@@ -14,10 +16,10 @@
   %p If you are interested in a product, send the vendor a message below
   .row 
     - @products.each do |product|
-      = render partial: 'product_card', locals: { product: product }
+      = render partial: 'product_card', locals: { product: product, by_product_type: false }
       
   %hr
   %h2 Send #{@vendor.display_name} a message.
   = render partial: 'send_message_form'
-  .text-center
-    = link_to 'Back to Vendors', vendors_path, class: 'btn btn-primary sale-btn'
+.text-center
+  = link_to 'Back to Vendors', vendors_path, class: 'btn btn-primary sale-btn'

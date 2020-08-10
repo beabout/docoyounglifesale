@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :products, only: [:index] 
   end
 
+  resources :product_types, only: [:show]
   resources :messages, only: [:create]
 
   resources :welcome do 

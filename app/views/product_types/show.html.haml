@@ -1,0 +1,13 @@
+%h1
+  %strong= @product_type.name
+
+%hr
+
+%p If you are interested in a product, click a link to visit the vendor's page 
+.row 
+  - @products.each do |product|
+    = render partial: 'products/product_card', locals: { product: product, by_product_type: true, vendor: product.vendor }
+
+
+.text-center
+  = link_to 'Back to Vendors', vendors_path, class: 'btn btn-primary sale-btn'

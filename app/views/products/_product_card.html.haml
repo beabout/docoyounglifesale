@@ -3,15 +3,23 @@
     .row 
       - if product.image.attached?
         .col-6
-          = image_tag product.image, style: 'width: 100%;'
+          = image_tag product.image, class: 'product-image'
         .col-6
           .card-body
             %h5.card-title= product.product_to_human
             %hr
+            - if by_product_type
+              = link_to vendor.display_name, vendor_products_path(vendor), class: 'badge badge-primary sale-bdg'
+            - else 
+              = link_to product.product_type.name, product_type_path(product.product_type), class: 'badge badge-primary sale-bdg'
             %p.card-text= product&.description
       - else 
         .card-body
           %h5.card-title= product.product_to_human
           %hr
+          - if by_product_type
+            = link_to vendor.display_name, vendor_products_path(vendor), class: 'badge badge-primary sale-bdg'
+          - else 
+            = link_to product.product_type.name, product_type_path(product.product_type), class: 'badge badge-primary sale-bdg'
           %p.card-text= product&.description
           

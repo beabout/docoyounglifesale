@@ -6,8 +6,8 @@ class Product < ApplicationRecord
   has_one_attached :image
 
   validates :name, presence: true
-  # type ( clothing, )
-  # size ( 'small' )
+  
+  scope :by_type, ->(p){ where(product_type: p)}
 
   def product_to_human
     p = ""
