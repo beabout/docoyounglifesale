@@ -25,7 +25,7 @@ role :web, %w{clay@167.172.139.255}
 role :db,  %w{clay@167.172.139.255}, primary: true 
 set :branch, "master"
 set :rails_env, "production"
-set :deploy_to, "/home/clay/docoyounglifesale"
+set :deploy_to, "/home/clay/deploys/current/docoyounglifesale"
 
 
 

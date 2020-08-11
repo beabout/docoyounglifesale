@@ -99,6 +99,6 @@ Rails.application.configure do
     password:             ENV["SENGRID_EMAIL_PASSWORD"], 
     port:                 587, 
     authentication:       :plain, 
-    enable_starttls_auto: true }
+    enable_starttls_auto: true 
   }
 end
