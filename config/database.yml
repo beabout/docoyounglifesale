@@ -83,8 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: doco_production
+  database: doco_sale_production
+  username: clay
   password: <%= ENV['PRODUCTION_DATABASE_PASSWORD'] %>
-  username: <%= ENV['PRODUCTION_DATABASE_USER'] %> 
-  password: <%= ENV['PRODUCTION_DATABASE_PASSSWORD'] %> 
-  host: <%= ENV['PRODUCTION_HOST'] %> 

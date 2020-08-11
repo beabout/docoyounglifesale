@@ -46,6 +46,7 @@ gem 'premailer-rails', '~> 1.11', '>= 1.11.1'
 gem 'friendly_id', '~> 5.3'
 gem 'simple_form', '~> 5.0', '>= 5.0.2'
 
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -58,6 +59,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capistrano', '~> 3.14', '>= 3.14.1'
+  gem 'capistrano-rails', '~> 1.6', '>= 1.6.1'
+  gem 'capistrano-passenger', '~> 0.2.0'
 end
 
 group :development do
