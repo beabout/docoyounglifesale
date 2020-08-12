@@ -83,22 +83,29 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
-    logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
-  end
+  logger           = ActiveSupport::Logger.new(STDOUT)
+  logger.formatter = config.log_formatter
+  config.logger    = ActiveSupport::TaggedLogging.new(logger)
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }  
+  config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    address:              'smtp.sengrid.net', 
-    domain:               'docoylsale.com', 
-    user_name:            ENV["SENGRID_EMAIL_USERNAME"], 
-    password:             ENV["SENGRID_EMAIL_PASSWORD"], 
-    port:                 587, 
-    authentication:       :plain, 
-    enable_starttls_auto: true 
+    :address =>              'smtp.sengrid.net', 
+    :domain =>               'docoylsale.com', 
+    :user_name =>            ENV["SENGRID_EMAIL_USERNAME"], 
+    :password =>             ENV["SENGRID_EMAIL_PASSWORD"], 
+    :port =>                 587, 
+    :authentication =>       :plain, 
+    :enable_starttls_auto => true 
   }
+  
+  logger           = ActiveSupport::Logger.new(STDOUT)
+  logger.formatter = config.log_formatter
+  config.logger    = ActiveSupport::TaggedLogging.new(logger)
 end
+
+Rails.application.default_url_options = Rails.application.config.action_mailer.default_url_options
+
