@@ -94,9 +94,9 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     :address =>              'smtp.sengrid.net', 
-    :domain =>               'docoylsale.com', 
-    :user_name =>            ENV["SENGRID_EMAIL_USERNAME"], 
-    :password =>             ENV["SENGRID_EMAIL_PASSWORD"], 
+    :domain =>               'heroku.com', 
+    :user_name =>            ENV["SENGRID_USERNAME"], 
+    :password =>             ENV["SENGRID_PASSWORD"], 
     :port =>                 587, 
     :authentication =>       :plain, 
     :enable_starttls_auto => true 
