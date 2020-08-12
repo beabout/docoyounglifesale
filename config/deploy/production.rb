@@ -20,12 +20,15 @@
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
-role :app, %w{clay@167.172.139.255}
-role :web, %w{clay@167.172.139.255}
-role :db,  %w{clay@167.172.139.255}, primary: true 
-set :branch, "master"
-set :rails_env, "production"
-set :deploy_to, "/home/clay/deploys/current/docoyounglifesale"
+
+# DIGITAL OCEAN - CAPISTRANO Configurations
+# role :app, %w{clay@167.172.139.255}
+# role :web, %w{clay@167.172.139.255}
+# role :db,  %w{clay@167.172.139.255}, primary: true 
+# set :branch, "master"
+# set :rails_env, "production"
+# set :deploy_to, "/home/clay/deploys/releases"
+# DIGITAL OCEAN - CAPISTRANO Configurations
 
 
 
