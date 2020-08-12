@@ -6,7 +6,7 @@ class Vendor < ApplicationRecord
   has_one_attached :avatar
 
   validates :email, presence: true
-  validates :phone_number, format: { with: /\d{3}-\d{3}-\d{4}/, message: "Use 123-555-4444 formatting" } 
+  validates :phone_number, format: { with: /\d{3}-\d{3}-\d{4}/, message: "Use 123-555-4444 formatting" }, allow_blank: true
   validate :name_or_company_name_are_present
   after_create_commit :send_welcome_email
   
