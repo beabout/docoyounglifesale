@@ -4,6 +4,10 @@ class ProductTypesController < ApplicationController
   def show
   end
 
+  def index
+    @product_types = ProductType.all
+  end
+
   private 
 
   def load_products   
