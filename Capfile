@@ -1,6 +1,6 @@
 # Load DSL and set up stages
 require "capistrano/setup"
-
+require "capistrano/deploy"
 # Include default deployment tasks
 # Load the SCM plugin appropriate to your project:
 #
