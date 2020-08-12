@@ -16,7 +16,7 @@ class Vendor < ApplicationRecord
   end
 
   def display_name
-    company_name ? company_name : full_name 
+    company_name.present? ? company_name : full_name 
   end
 
   def product_types_list

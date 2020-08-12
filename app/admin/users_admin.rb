@@ -8,6 +8,7 @@ Trestle.resource(:users) do
   table do
     column :email
     column :created_at
+    column :admin
     # actions
   end
 
@@ -16,7 +17,7 @@ Trestle.resource(:users) do
   form do |user|
     row do
       col { text_field :email }
-      col { text_field :password }
+      col { select :admin, ['false', 'true'] }
     end
   end
 
