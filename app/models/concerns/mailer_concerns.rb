@@ -2,7 +2,7 @@ module MailerConcerns
   extend ActiveSupport::Concern
 
   included do 
-    default from: "molly@douglascounty.younglife.org"
+    default from: "notifications@docoylsale.com"
   end
   
   def generate_premailer(template)
@@ -12,4 +12,4 @@ module MailerConcerns
       css: [Rails.root.join('app', 'assets', 'stylesheets','email.css').to_s]
     })
   end
-end
+end 
