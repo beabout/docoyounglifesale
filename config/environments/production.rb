@@ -93,13 +93,15 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }  
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    :address =>              'smtp.sengrid.net', 
-    :domain =>               'heroku.com', 
-    :user_name =>            ENV["SENGRID_USERNAME"], 
-    :password =>             ENV["SENGRID_PASSWORD"], 
-    :port =>                 587, 
-    :authentication =>       :plain, 
-    :enable_starttls_auto => true 
+    domain:                'http://docoylsale.com', 
+    address:               'smtp.sengrid.net', 
+    port:                  587, 
+    authentication:        :plain, 
+    # user_name:             ENV["SENDGRID_USERNAME"], 
+    user_name:             'apikey',
+    # password:              ENV["SENDGRID_PASSWORD"], 
+    password:              ENV["SENDGRID_API_KEY"], 
+    enable_starttls_auto:  true 
   }
   
   logger           = ActiveSupport::Logger.new(STDOUT)
