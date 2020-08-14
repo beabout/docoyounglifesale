@@ -26,7 +26,7 @@ class Vendor < ApplicationRecord
   private 
 
   def send_welcome_email
-    VendorMailer.welcome(vendor: self).deliver 
+    VendorMailer.welcome(vendor: self).deliver_later
   end
 
   def name_or_company_name_are_present

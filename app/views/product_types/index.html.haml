@@ -4,10 +4,8 @@
 
 %hr
 
-.row 
-  - @product_types.each do |type|
-    - type.products.each do |product|
-      = render partial: 'product_card', locals: { product: product, by_product_type: true }
+- @product_types.each do |type|
+  = link_to type.name, product_type_path(type), class: 'badge badge-primary sale-bdg'
 
 .text-center
   %a.btn.btn-primary.sale-btn{href: root_path} Back to homepage 

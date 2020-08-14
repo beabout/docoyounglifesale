@@ -39,7 +39,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
@@ -93,16 +93,17 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }  
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    domain:                'http://docoylsale.com', 
-    address:               'smtp.sengrid.net', 
-    port:                  587, 
-    authentication:        :plain, 
-    # user_name:             ENV["SENDGRID_USERNAME"], 
-    user_name:             'apikey',
-    # password:              ENV["SENDGRID_PASSWORD"], 
-    password:              ENV["SENDGRID_API_KEY"], 
-    enable_starttls_auto:  true 
+    :address => 'smtp.sendgrid.net',
+    :port => '587',
+    :domain => 'heroku.com',
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
+
+  # devise required settings
+  config.action_mailer.default_url_options = { :host => ENV['APP_HOST'] }
   
   logger           = ActiveSupport::Logger.new(STDOUT)
   logger.formatter = config.log_formatter
