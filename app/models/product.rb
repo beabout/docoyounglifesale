@@ -11,9 +11,9 @@ class Product < ApplicationRecord
 
   def product_to_human
     p = ""
-    p += name if name 
-    p += " | #{size}" if size 
-    p += " | #{number_to_currency(cost)}" if cost 
+    p += name if name.present?
+    p += " | #{size}" if size.present?
+    p += " | #{number_to_currency(cost)}" if cost.present?
     p 
   end
 
