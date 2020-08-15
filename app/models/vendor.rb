@@ -1,9 +1,10 @@
 class Vendor < ApplicationRecord
-  # add slug friendly 
+  extend FriendlyId
+  
   has_many :products, dependent: :destroy 
   has_many :links, dependent: :destroy 
-  
   has_one_attached :avatar
+  friendly_id :company_name, use: :slugged
 
   validates :email, presence: true, uniqueness: true
   validates :phone_number, format: { with: /\d{3}-\d{3}-\d{4}/, message: "Use 123-555-4444 formatting" }, allow_blank: true

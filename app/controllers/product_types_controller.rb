@@ -11,7 +11,7 @@ class ProductTypesController < ApplicationController
   private 
 
   def load_products   
-    @product_type = ProductType.find(params[:id])
+    @product_type = ProductType.friendly.find(params[:id])
     @products = Product.by_type(@product_type)
   end
 end

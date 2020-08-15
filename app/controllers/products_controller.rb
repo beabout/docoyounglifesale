@@ -9,11 +9,10 @@ class ProductsController < ApplicationController
   private 
 
   def load_product
-    @product = Product.find(params[:id])
+    @product = Product.friendly.find(params[:id])
   end
 
   def load_vendor
-    @vendor = Vendor.find(params[:vendor_id])
+    @vendor = Vendor.friendly.find(params[:vendor_id])
   end
 end
-0
