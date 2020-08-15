@@ -1,12 +1,9 @@
 .col-6.col-md-4
-  .card.mb-4.card-bordering
+  .card.mb-4.vendor-card
     - if vendor.avatar.attached?
-      = image_tag vendor.avatar, style: 'width: 100%;', class: 'vendor-image'
+      = link_to image_tag(vendor.avatar, style: 'width: 100%;', class: 'vendor-image'), vendor_products_path(vendor)
     .card-body
       %h2.card-title= vendor.display_name
       %p.card-text 
         - vendor.product_types_list.each do |pt|
-          = link_to pt.name, product_type_path(pt), class: 'badge badge-primary sale-bdg'
-
-      %hr
-      = link_to 'Check out my stuff', vendor_products_path(vendor), class: 'btn btn-primary sale-btn'
+          = link_to pt.name, product_type_path(pt), class: 'badge badge-primary sale-bdg text-wrap'

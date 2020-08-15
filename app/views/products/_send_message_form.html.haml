@@ -1,6 +1,6 @@
 %p Fill in the fields below and select a product your interested in and we'll reach out to the vendor for you. From there, they can reach out to you via your email or phone
 
-.jumbotron
+.jumbotron.message-form
   - flash.each do |type, msg| 
     - if type == 'alert'
       .alert.alert-primary.alert-dismissible.fade.show{:role => "alert"}
@@ -11,9 +11,9 @@
   = simple_form_for @message, method: :post do |f| 
     = f.hidden_field :vendor_id, as: :hidden_field, value: @vendor.id
     .row 
-      .col-6
+      .col-12.col-md-6
         = f.input :email, placeholder: 'Your email...'
-      .col-6
+      .col-12.col-md-6
         = f.input :phone_number, placeholder: 'Your phone number...'
       .col-12 
         = f.input :product_id, as: :select, collection: @vendor.products.map{|p| [p.product_to_human, p.id]}, include_blank: 'Choose a Product'

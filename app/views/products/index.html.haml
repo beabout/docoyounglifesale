@@ -8,12 +8,9 @@
   = link_to link.site_name, link.site_url, class: 'badge badge-primary sale-bdg'
 
 %hr 
-
-%h2 Products 
 - if @products.empty? 
   %p Uh oh! This vendor doesn't have any products up yet! 
 - else 
-  %p If you are interested in a product, send the vendor a message below
   .row 
     - @products.each do |product|
       = render partial: 'product_card', locals: { product: product, by_product_type: false }

@@ -66,6 +66,18 @@ body {
   }
   // background-image: url("dash-opaq.jpg");
   // background-position: center; 
+  p {
+    font-size: 1rem;
+    @media (max-width: 380px){
+      font-size: 0.75rem;
+    }
+  }
+}
+
+h1 {
+  @media (max-width: 380px){
+    font-size: 1.5rem;
+  }
 }
 
 .sale-btn {
@@ -88,6 +100,7 @@ body {
 .sale-bdg {
   border-radius: 0.25rem;
   margin-bottom: 0.25rem;
+  font-size: 75% !important;
 }
 
 .container {
@@ -119,6 +132,7 @@ body {
 
 .homepage {
   padding-top: 1rem;
+  padding-bottom: 2rem;
 }
 
 .home-jumbo {
@@ -169,12 +183,43 @@ body {
 
 .product-image {
   width: 100%;
-  border-top-left-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
 }
 
-.card-bordering {
+.product {
+  padding-bottom: 1rem;
+  img {
+    padding-bottom: 0.5rem;
+  }
+  h5 {
+    font-size: 1rem;
+    margin-bottom: 0rem;
+    @media (max-width: 380px){
+      font-size: 0.75rem;
+    }
+  }
+  p {
+    font-size: 0.9rem;
+    margin-bottom: 0rem;
+    @media (max-width: 380px){
+      font-size: 0.5rem;
+    }
+  }
+}
+
+.vendor-card {
   border-radius: 0.5rem;
+  .card-body {
+    padding: 0.5rem;
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0rem;
+    }
+    @media (max-width: 380px){
+      h2 {
+        font-size: 1rem;
+      }
+    }
+  }
 }
 
 h2 {
