@@ -1,5 +1,26 @@
-.homepage.text-center 
-  %h1 
+.homepage
+  %h1.small-header
     Welcome to the 
     %strong Sidewalk Sale.
-  = link_to "See Our Vendors", vendors_path, class: "btn btn-primary btn-lg sale-btn"
+  .row 
+    .col-12.col-sm-6
+      .jumbotron.home-jumbo
+        .gmaps-container
+          %iframe.responsive-iframe{"aria-hidden" => "false", :frameborder => "0", :height => "450", :src => "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3103.792106200128!2d-95.27637968372974!3d38.92872897956586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87bf6918dbf2a2dd%3A0xf2e4aa04a8013150!2sRiver%20City%20Church!5e0!3m2!1sen!2sus!4v1597445324760!5m2!1sen!2sus", :tabindex => "0", :width => "500"}
+        %br
+        %h3 The In-person Sale.
+        %p August 22nd | 9am - 5pm
+        %p{style: 'margin-bottom: 0;'} River City Church 
+        %p{style: 'margin-bottom: 0;'} 3001 Lawrence Ave
+        %p{style: 'margin-bottom: 0;'} Lawrence, KS
+
+    .col-12.col-sm-6
+      %h1.wide-header Welcome to the 
+      %h1.wide-header 
+        %strong Sidewalk Sale.
+      %p 
+        %strong Both online and in-person, 
+        Douglas County Young Life is hosting the 
+        %strong Sidewalk Sale
+        featuring more than #{Vendor.count - (Vendor.count % 5)} local artists and small business owners selling custom and handmade goods along with several donated secondhand furniture, clothes, and household items. All proceeds from donated goods will go towards Douglas County Young Life.
+      = link_to "See Our Vendors", vendors_path, class: "btn btn-primary btn-lg sale-btn"

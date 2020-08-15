@@ -1,11 +1,13 @@
-%h1.bold Cetegories
+%h1.bold Categories
 
 %p These are all product categories. Click on one to see all products under that category. 
 
 %hr
 
-- @product_types.each do |type|
-  = link_to type.name, product_type_path(type), class: 'badge badge-primary sale-bdg'
+.row 
+  - @product_types.each do |type|
+    .col-6.col-md-4
+      = link_to type.name, product_type_path(type), class: 'btn btn-primary category-btn'
 
 .text-center
   %a.btn.btn-primary.sale-btn{href: root_path} Back to homepage 
