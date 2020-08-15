@@ -2,7 +2,7 @@ class VendorsController < ApplicationController
   before_action :load_vendor, only: [:product_inquiry]
 
   def index
-    @vendors = Vendor.all.order(company_name: :asc)
+    @vendors = Vendor.where.not(company_name: 'Donated Items').order(company_name: :asc)
   end
 
   private 

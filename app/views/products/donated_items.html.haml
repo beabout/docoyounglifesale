@@ -1,0 +1,18 @@
+%h1
+  %strong Donated Items
+%p 
+  All of these products will be for sale in-person on 
+  %strong August 22nd, 2020. 
+%hr 
+.row 
+  - @products.each do |product|
+    - if product.size.eql?('wide')
+      .col-12 
+        = image_tag product.image, class: 'donated-item-image'
+    - if product.size.eql?('square')
+      .col-6
+        = image_tag product.image, class: 'donated-item-image'
+    
+
+.text-center
+  = link_to 'Back to Vendors', vendors_path, class: 'btn btn-primary sale-btn'

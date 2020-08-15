@@ -12,6 +12,6 @@ class ProductTypesController < ApplicationController
 
   def load_products   
     @product_type = ProductType.friendly.find(params[:id])
-    @products = Product.by_type(@product_type)
+    @products = Product.where.not(vendor: Vendor.friendly.find('donated-items')).by_type(@product_type)
   end
 end

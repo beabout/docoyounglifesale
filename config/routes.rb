@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "about_us" => "welcome#about_us", :as => :about_us
   get "donate" => "welcome#donate", :as => :donate
   get "categories" => "product_types#index", :as => :categories
+  get "donated-items" => "products#donated_items", :as => :donated_items
 
   root 'welcome#index'
 end

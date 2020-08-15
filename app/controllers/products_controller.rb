@@ -6,6 +6,13 @@ class ProductsController < ApplicationController
     @message = Message.new
   end
 
+  def donated_items
+    # Set size for these products based on image width
+    @vendor = Vendor.friendly.find('donated-items')
+    @products = @vendor.products.order(size: :desc)
+    @message = Message.new
+  end
+
   private 
 
   def load_product
