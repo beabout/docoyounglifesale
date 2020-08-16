@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   end
 
   def donated_items
-    # Set size for these products based on image width
+    # Set size for these products based on image width ('square', 'wide')
     @vendor = Vendor.friendly.find('donated-items')
     @products = @vendor.products.order(size: :desc)
     @message = Message.new

@@ -1,8 +1,6 @@
 %h1
-  %strong Donated Items
-%p 
-  All of these products will be for sale in-person on 
-  %strong August 22nd, 2020. 
+  %strong= @vendor.company_name
+%p= @vendor.bio.html_safe
 %hr 
 .row 
   - @products.each do |product|

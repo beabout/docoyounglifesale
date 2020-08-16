@@ -80,6 +80,14 @@ h1 {
   }
 }
 
+.email-and-back-btn {
+  @media (max-width: 380px){
+    font-size: 0.75rem;
+  }
+  border-radius: 0.25rem;
+  padding: 0rem 0.5rem;
+}
+
 .sale-btn {
   @media (max-width: 380px){
     font-size: 0.75rem;

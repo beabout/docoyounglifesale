@@ -14,9 +14,10 @@
   .row 
     - @products.each do |product|
       = render partial: 'product_card', locals: { product: product, by_product_type: false }
-      
-  %hr
-  %h2 Send #{@vendor.display_name} a message.
-  = render partial: 'send_message_form'
+
 .text-center
-  = link_to 'Back to Vendors', vendors_path, class: 'btn btn-primary sale-btn'
+  %p{style: 'padding-top: 2rem;'} 
+    Feel free to
+    = mail_to @vendor.email, 'Email This Vendor', subject: "[Sidewalk Sale] I'm interested in one of your products!", class: 'btn btn-primary email-and-back-btn'
+    or go 
+    = link_to 'Back to Vendors', vendors_path, class: 'btn btn-primary email-and-back-btn'
