@@ -8,6 +8,5 @@
   - @products.each do |product|
     = render partial: 'products/product_card', locals: { product: product, by_product_type: true, vendor: product.vendor }
 
-
 .text-center
   = link_to 'Back to Vendors', vendors_path, class: 'btn btn-primary sale-btn'

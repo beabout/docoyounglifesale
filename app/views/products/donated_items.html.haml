@@ -1,6 +1,9 @@
 %h1
   %strong= @vendor.company_name
 %p= @vendor.bio.html_safe
+%p
+  If you'd like to reserve an item or check the inventory, feel free to 
+  = mail_to @vendor.email, 'Email the Sale Coordinator', subject: "[Sidewalk Sale] I'm interested in one of your products!", class: 'btn btn-primary email-and-back-btn'
 %hr
 %p Among the products below, expect to see: 
 %ul
