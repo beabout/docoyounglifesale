@@ -1,7 +1,13 @@
 %h1
   %strong= @vendor.company_name
 %p= @vendor.bio.html_safe
-%hr 
+%hr
+%p Among the products below, expect to see: 
+%ul
+  - @list_products.each do |p|
+    %li= p.name 
+  %li And more! 
+
 .row 
   - @products.each do |product|
     - if product.size.eql?('wide')
@@ -10,7 +16,6 @@
     - if product.size.eql?('square')
       .col-6
         = image_tag product.image, class: 'donated-item-image'
-    
 
 .text-center
   = link_to 'Back to Vendors', vendors_path, class: 'btn btn-primary sale-btn'
