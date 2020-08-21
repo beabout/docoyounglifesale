@@ -1,16 +1,14 @@
 %h1
   %strong= @vendor.display_name
 
-%p= @vendor&.bio
+%p= @vendor&.bio.html_safe
 - if @vendor.website_url.present?
   = link_to "#{@vendor.display_name}'s Site", @vendor.website_url, class: 'badge badge-primary sale-bdg'
 - @vendor.links.each do |link|
   = link_to link.site_name, link.site_url, class: 'badge badge-primary sale-bdg'
 
 %hr 
-- if @products.empty? 
-  %p Uh oh! This vendor doesn't have any products up yet! 
-- else 
+- unless @products.empty?
   .row 
     - @products.each do |product|
       = render partial: 'product_card', locals: { product: product, by_product_type: false }
