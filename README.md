@@ -4,4 +4,5 @@ Vendors give a donation to Douglas County Young Life in order for their products
 
 ## Details 
 - Rails Framework 
-- Server hosting through Digital Ocean 
+- AWS image hosting
+- Server running on Heroku
